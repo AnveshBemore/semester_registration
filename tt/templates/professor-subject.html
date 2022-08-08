@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Time Table</title>
+    <style>
+      button:hover {
+        background-color: grey;
+      }
+
+      button {
+        border-radius: 25px;
+      }
+      .top {
+        background-color: black;
+        border: none;
+        width: 10vw;
+        height: 5vh;
+        margin-left: 8vw;
+        margin-top: 20px;
+      }
+      .top-text {
+        color: white;
+      }
+      table {
+        margin-left: 16vw;
+        margin-top: 30px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid white;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        background-color: #96d4d4;
+        padding: 15px;
+        text-align: left;
+      }
+      td {
+        width: 80px;
+      }
+      #divid {
+        font-size: 20px;
+      }
+      div {
+        display: inline-block;
+        margin: 20px;
+      }
+      #divform {
+        margin-top: 30vh;
+        margin-left: 30vw;
+      }
+      input {
+        border-radius: 25px;
+      }
+
+      label {
+        margin-left: 20px;
+        font-family: Georgia;
+        font-size: 20px;
+      }
+      #submit-prof-sub {
+        margin-left: 16vw;
+        width: 100px;
+        border: none;
+        background-color: black;
+        color: white;
+        padding: 10px;
+      }
+      #submit-prof-sub:hover {
+        background-color: grey;
+      }
+       a {
+        text-decoration: none;
+      }
+      p{
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index" class="top-text"><button type="button" id="top-text-std" class="top student-view">
+      <p>Student View</p> 
+     </button></a>
+     <a href="student_register" class="top-text" href="student.html"></a><button type="button" id="top-text-std-regis" class="top student-view">
+       <p>Student Register</p> 
+     </button></a>
+     <a class="top-text"></a><button type="button" id="top-text-prof" class="top student-view">
+       <p>Professor View</p> 
+     </button></a>
+     <a class="top-text" href="professor_subject"><button type="button" id="top-text-prof-regis" class="top student-view">
+       <p>Professor Register</p> 
+     </button></a>
+     <a class="top-text"></a><button type="button" id="top-text-hall" class="top student-view">
+       <p>Hall View</p> 
+     </button></a>
+ 
+
+    <div id="divform">
+      <form action="prof_subj_registration" method="post">
+        {% csrf_token %} 
+        <div id="div-prof">
+          <label for="prof-name">Professor Name</label><br /><br />
+          <input type="text" name="prof-name" id="prof-name-input" placeholder="Sidhartha" />
+        </div>
+        <div id="div-subj">
+          <label for="subject-name">Subject Name</label><br /><br />
+          <input type="text" name="subj-name" id="prof-subj" placeholder="C++" />
+        </div>
+        <div>
+          <label for="prof-credit">Credits</label><br /><br />
+          <input type="number"  name="credits" placeholder="4" id="prof-credit" />
+        </div>
+        <br /><br />
+        <div>
+          <input id="submit-prof-sub"  type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
