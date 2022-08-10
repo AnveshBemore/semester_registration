@@ -135,3 +135,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # STATICFILES_DIRS=[
 #     os.path.join(BASE_DIR,'static'),
 # ]
+# CSRF_FAILURE_VIEW = 'some.path.to.your.views.error_403_csrf_failure'

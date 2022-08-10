@@ -8,6 +8,7 @@
     <style>
       button:hover {
         background-color: grey;
+        cursor: pointer;
       }
       button {
         border-radius: 25px;
@@ -18,7 +19,7 @@
         width: 10vw;
         height: 5vh;
         margin-left: 8vw;
-        margin-top: 20px;
+        margin-top: 80px;
       }
       .top-text {
         color: white;
@@ -37,13 +38,14 @@
       td {
         background-color: #96d4d4;
         padding: 15px;
-        text-align: left;
+        text-align: center;
       }
       td {
         width: 80px;
       }
       #divid {
         font-size: 20px;
+        margin-top: 80px;
       }
       a {
         text-decoration: none;
@@ -54,7 +56,7 @@
     </style>
   </head>
   <body>
-    <a href="index" class="top-text"></a><button type="button" id="top-text-std" class="top student-view">
+    <a href="index" class="top-text"><button type="button" id="top-text-std" class="top student-view">
      <p>Student View</p> 
     </button></a>
     <a href="student_register" class="top-text" href="student.html"><button type="button" id="top-text-std-regis" class="top student-view">
@@ -70,26 +72,105 @@
       <p>Hall View</p> 
     </button></a>
 
-    <div id="divid"></div>
+    <!-- <div id="divid"></div> -->
+    <div id="table">
+      <table>
+        <tr>
+          <th></th>
+          <th>8:00 - 8:50</th>
+          <th>8:50 - 9:40</th>
+          <th>9:40 - 10:30</th>
+          <th>10:30 - 11:20</th>
+          <th>Lunch</th>
+          <th>12:10 - 13:00</th>
+          <th>13:00 - 13:50</th>
+          <th>13:00 - 13:50</th>
+          <th>13:00 - 13:50</th>
+        </tr>
+        {%for  in c.items%}        
+        <tr>
+          <td>{{key}}: {{value}}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        {%endfor%}
+          <!-- <tr><td>Tuesday</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr> -->
+      </table>
+
+    </div>
 
     <script text="text/javascript">
       var subjects = [
         [
           "",
-          "C",
-          "C++",
-          "Java",
-          "Maths",
-          "Physics",
-          "Chemistry",
-          "Python",
-          "DSA"
+          "8:00 - 8:50",
+          "8:50 - 9:40",
+          "9:40 - 10:30",
+          "10:30 - 11:20",          
+          "Lunch",
+          "12:10 - 13:00",
+          "13:00 - 13:50",
+          "13:50 - 14:40",
+          "14:40 - 15:30"
         ],
-        ["Monday", "", "", "", "", "", "", "", ""],
-        ["Tuesday", "", "", "", "", "", "", "", ""],
-        ["Wednesday", "", "", "", "", "", "", "", ""],
-        ["Thursday", "", "", "", "", "", "", "", ""],
-        ["Friday", "", "", "", "", "", "", "", ""]
+        ["Monday", "", "", "", "","Lunch", "", "", "", ""],
+        ["Tuesday", "", "", "", "","Lunch", "", "", "", ""],
+        ["Wednesday", "", "", "", "","Lunch", "", "", "", ""],
+        ["Thursday", "", "", "", "","Lunch", "", "", "", ""],
+        ["Friday", "", "", "", "","Lunch", "", "", "", ""]
       ];
 
       var mytable = "<table>";

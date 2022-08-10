@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Time Table</title>
     <style>
-        button:hover {
+      button:hover {          
+        cursor: pointer;
         background-color: grey;
       }
       button {
@@ -61,14 +62,15 @@
         color: white;
       }
       #select_sub_prof{
-        margin-left: 50%;
+        margin-left: 38vw;
+        font-size: xx-large;
       }
       #subj_select{
-        margin-top: 25vh;
+        margin-top: 15vh;
       }
       .subject{
-        margin-top: 40px;
-        margin-left: 45px;
+        margin-top: 15px;
+        margin-left: 40px;
       }
       #submit{
         margin-left: 50vw;
@@ -84,15 +86,29 @@
         background-color: grey;
 
       }
+      .profess{
+        margin-top: 20px;
+      }
+      #std{
+        margin-left: 35vw;
+      }
+      #std_name ,#std_id{
+        margin-top: 20px;
+      }
+      select{
+        border-radius: 25px;
+        width: 120px;        
+        height: 30px;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
-   
-    <a href="index" class="top-text"></a><button type="button" id="top-text-std" class="top student-view">
+    <a href="index" class="top-text"><button type="button" id="top-text-std" class="top student-view">
       <p>Student View</p> 
      </button></a>
-     <a href="student_register" class="top-text" href="student.html"></a><button type="button" id="top-text-std-regis" class="top student-view">
-       <p>Student Register</p>  
+     <a href="student_register" class="top-text" href="student.html"><button type="button" id="top-text-std-regis" class="top student-view">
+       <p>Student Register</p> 
      </button></a>
      <a class="top-text"></a><button type="button" id="top-text-prof" class="top student-view">
        <p>Professor View</p> 
@@ -103,17 +119,31 @@
      <a class="top-text"></a><button type="button" id="top-text-hall" class="top student-view">
        <p>Hall View</p> 
      </button></a>
+
+
+
+
      <div id="subj_select">
-      <label id="select_sub_prof">Select Subject  Professor</label>
-      <form action="">
+      <label id="select_sub_prof">Select Professor for Subject</label>
+      <form action="student_registered" method="post" 
+      >
+      <div id="std">
+        <div>
+      <label for="std_name">Student Name</label><br>
+      <input type="text" name="std_name" id="std_name"></div>
+      <div id="id">
+      <label for="std_id">Student Id</label><br>
+      <input type="text" name="std_id" id="std_id"></div>
+    </div>  
+      <br>
       {%for sub in subjects%}
       
       <div class="subject">
         <label for="">{{sub.subj_name}}</label>
 <br>
-        <select name="{{sub.prof_name}}" id="{{sub.prof_name}}">
-
-          <option value="select proffesor">select proffesor</option>
+        <select name="{{sub.subj_name}}" class="profess" id="{{sub.prof_name}}">
+<!-- subject select professor -->
+          <option value="select proffesor">select professor</option>
           <option value="{{sub.prof_name}}">{{sub.prof_name}}</option>
         </select>
 
@@ -123,6 +153,7 @@
     {{s.subj_name}}
     {%endfor%} -->
     <br>
+   
     <input type="submit"id="submit" value="Register">
   </form>
      </div>
