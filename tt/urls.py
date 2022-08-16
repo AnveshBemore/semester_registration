@@ -8,4 +8,6 @@ urlpatterns=[
     path('student_register',views.student_register,name="student_register"),
     path('prof_subj_registration',views.prof_subj_registration,name='prof_subj_registration'),
     path('student_registered',views.student_registered,name='student_registered'),
+    path('hall_view',views.hall_view,name='hall_view'),
+    path('prof_view',views.prof_view,name='prof_view'),
 ]

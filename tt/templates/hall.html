@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -62,13 +62,13 @@
     <a href="student_register" class="top-text" href="student.html"><button type="button" id="top-text-std-regis" class="top student-view">
       <p>Student Register</p> 
     </button></a>
-    <a class="top-text"href="prof_view"><button type="button" id="top-text-prof" class="top student-view">
+    <a class="top-text"></a><button type="button" id="top-text-prof" class="top student-view">
       <p>Professor View</p> 
     </button></a>
     <a class="top-text" href="professor_subject"><button type="button" id="top-text-prof-regis" class="top student-view">
       <p>Professor Register</p> 
     </button></a>
-    <a class="top-text" href="hall_view"><button type="button" id="top-text-hall" class="top student-view">
+    <a class="top-text"></a><button type="button" id="top-text-hall" class="top student-view">
       <p>Hall View</p> 
     </button></a>
 
@@ -87,20 +87,21 @@
           <th>13:00 - 13:50</th>
           <th>13:00 - 13:50</th>
         </tr>
-        {%for i in a%}
+        {% for i in days %}
         <tr>
-          <td>Monday</td>
-          <td>{{i.course1}} <br> hall 1 </td>
-          <td>{{i.course2}}<br> hall 2</td>
-          <td>{{i.course3}}<br> hall 3</td>
-          <td>{{i.course4}}<br> hall 4</td>
+          <td>{{i}}</td>
+          {%for j in a%}
+          <td>{{j}}</td>
+          {%endfor%}
           <td>Lunch</td>
-          <td>{{i.course1}} Lab<br> hall 5</td>
-          <td>{{i.course2}} Lab<br> hall 1</td>
-          <td>{{i.course3}} Lab<br> hall 2</td>
-          <td>{{i.course4}} Lab <br> hall 3</td>
+          
+          {%for j in c%}
+          <td>{{j}}</td>
+          {%endfor%}
+          
         </tr>
-        <tr>
+        {% endfor %}
+        <!-- <tr>
             <td>Tuesday</td>
             <td>{{i.course1}} <br> hall 1 </td>
             <td>{{i.course2}}<br> hall 2</td>
@@ -126,10 +127,10 @@
         </tr>
         <tr>
           <td>Thursday</td>
-          <td>{{i.course5}} <br> hall 1 </td>
-          <td>{{i.course6}}<br> hall 2</td>
-          <td>{{i.course7}}<br> hall 3</td>
-          <td>{{i.course8}}<br> hall 4</td>
+          <td>{{i.course1}} <br> hall 1 </td>
+          <td>{{i.course2}}<br> hall 2</td>
+          <td>{{i.course3}}<br> hall 3</td>
+          <td>{{i.course4}}<br> hall 4</td>
           <td>Lunch</td>
           <td>{{i.course5}} Lab<br> hall 5</td>
           <td>{{i.course6}} Lab<br> hall 1</td>
@@ -148,78 +149,10 @@
           <td>{{i.course8}}<br> hall 2</td>
           <td>{{i.course8}}<br> hall 3</td>
         </tr>
-        {%endfor%}
+        -->
       </table>
 
     </div>
 
-    <script text="text/javascript">
-      var subjects = [
-        [
-          "",
-          "8:00 - 8:50",
-          "8:50 - 9:40",
-          "9:40 - 10:30",
-          "10:30 - 11:20",          
-          "Lunch",
-          "12:10 - 13:00",
-          "13:00 - 13:50",
-          "13:50 - 14:40",
-          "14:40 - 15:30"
-        ],
-        ["Monday", "", "", "", "","Lunch", "", "", "", ""],
-        ["Tuesday", "", "", "", "","Lunch", "", "", "", ""],
-        ["Wednesday", "", "", "", "","Lunch", "", "", "", ""],
-        ["Thursday", "", "", "", "","Lunch", "", "", "", ""],
-        ["Friday", "", "", "", "","Lunch", "", "", "", ""]
-      ];
-
-      var mytable = "<table>";
-
-      for (var i = 0; i < subjects.length; i++) {
-        mytable += "<tr>";
-        for (var j = 0; j < subjects[0].length; j++) {
-          // if(undefined==subjects[])
-          mytable += "<td>" + subjects[i][j] + "</td>";
-        }
-        mytable += "</tr>";
-      }
-      mytable += "</tr></table>";
-      document.getElementById("divid").innerHTML = mytable;
-
-      // document.getElementById("top-text-prof-regis").onclick = function () {
-      //   registerSubject();
-      // };
-      // function registerSubject() {
-      //   document.getElementById("divid").style.transform = "translateY(200px)";
-
-      //   // document.getElementById("divid").remove();
-      //   // document.body.innerHTML = "";
-      // }
-      // var div = document.createElement("div");
-      // div.innerHTML = "hello bro";
-      // document.body.appendChild(div);
-      // var tble = document.createElement("table");
-      // tble.id = "table";
-      // document.body.appendChild(tble);
-      // $("div").addClass("hello").append("<p>hello bro</p>");
-
-      // var tro=document.createElement()
-      // document.getElementById("table").innerHTML = "<tr class='trow'></tr>";
-
-      //   $("#trow").append('<td class="row">' + subjects[i] + "<td>");
-    </script>
-    <!-- <table>
-      <tr>
-        <td><p class="row" id="c">C</p></td>
-        <td><p class="row" id="c++">C++</p></td>
-        <td><p class="row" id="java">Java</p></td>
-        <td><p class="row" id="maths">Maths</p></td>
-        <td><p class="row" id="Physics">Physics</p></td>
-        <td><p class="row" id="Chemistry">Chemistry</p></td>
-        <td><p class="row" id="python">Python</p></td>
-        <td><p class="row" id="DSA">DSA</p></td>
-      </tr>
-    </table> -->
   </body>
 </html>

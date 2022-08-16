@@ -9,20 +9,29 @@ def index(request):
     # template=loader.get_template('/index.html')
     std=student.objects.all()
     a=[]
-    n=0
-    m=0
-    for i in range(5):
-        b=[]
-        for j in range(10):
-            for  k in std:
-                if(m>=n):
-                    c="course"+str(m)
-                    b.append(j."course"+str(m))
-            print(b)
-        n+=1
+    # n=0
+    # m=0
+    # for i in range(5):
+    #     b=[]
+    #     for j in range(10):
+    #         for  k in std:
+    #             if(m>=n):
+    #                 c="course"+str(m)
+    #                 # b.append(j."course"+str(m))
+    #         print(b)
+    #     n+=1
+    # for st in std:
+    #     a.append(st.course1)
+    #     a.append(st.course2)
+    #     a.append(st.course3)
+    #     a.append(st.course4)
+    #     a.append(st.course5)
+    #     a.append(st.course6)
+    #     a.append(st.course7)
+    #     a.append(st.course8)   
 
 
-    return render(request,'index.html',{})
+    return render(request,'index.html',{'a':std})
     
 def professor_subject(request):
     return render(request,'professor-subject.html',{})
@@ -35,10 +44,14 @@ def student_register(request):
 @csrf_exempt
 
 def prof_subj_registration(request):
-    prof_na=request.Post.get('prof-name')
-    subj_na=request.Post.get('subj-name')
-    cred=request.Post.get('credits')
-    # if(prof_nam)
+    if request.method=="POST":
+        prof_na=request.POST.get('prof-name')
+        subj_na=request.POST.get('subj-name')
+        cred=request.POST.get('credits')
+        # if(prof_nam)
+        profid=subj_na+"  Prof ."+prof_na
+        prof=prof_subjec(prof_subj_id=profid,prof_name=prof_na,subj_name=subj_na,credits=cred)
+        prof.save()
     return render(request,'index.html')
 
 
@@ -87,3 +100,21 @@ def student_registered(request):
         c=c+1
     stud.save()
     return render(request,'index.html',{})
+
+def hall_view(request):
+    a={"h1":"hall 1","h2":"hall 2","h3":"hall 3","h4":"hall 4","h5":"hall 5"}
+    b=["hall 1","hall 2","hall 3","hall 4"]
+    c=["hall 5","hall 1","hall 2","hall 3"]
+    days=["Monday","Tuesday","Wednesday","Thursday","Friday"]
+    return render(request,'hall.html',{
+        "a":b,"c":c,"days":days})
+
+
+def prof_view(request):
+    prof=prof_subjec.objects.all()
+    a=[]
+    for i in prof:
+        a.append(i.prof_subj_id)
+        print(i.prof_subj_id)
+    std=student.objects.all()
+    return render(request,'prof_view.html',{"a":a,"std":std,"h":"hello"})
