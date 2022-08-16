@@ -1,77 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Time Table</title>
-    <style>
-      button:hover {
-        background-color: grey;
-        cursor: pointer;
-      }
-      button {
-        border-radius: 25px;
-      }
-      .top {
-        background-color: black;
-        border: none;
-        width: 10vw;
-        height: 5vh;
-        margin-left: 8vw;
-        margin-top: 30px;
-      }
-      .top-text {
-        color: white;
-      }
-      table {
-        margin-left: 20px;
-        margin-top: 30px;
-      }
-      table,
-      th,
-      td {
-        border: 1px solid white;
-        border-collapse: collapse;
-      }
-      th,
-      td {
-        background-color: #96d4d4;
-        padding: 15px;
-        text-align: center;
-      }
-      td {
-        width: 80px;
-      }
-      #divid {
-        font-size: 20px;
-        margin-top: 80px;
-      }
-      a {
-        text-decoration: none;
-      }
-      p{
-        color: white;
-      }
-    </style>
-  </head>
-  <body>
-    <a href="index" class="top-text"><button type="button" id="top-text-std" class="top student-view">
-     <p>Student View</p> 
-    </button></a>
-    <a href="student_register" class="top-text" href="student.html"><button type="button" id="top-text-std-regis" class="top student-view">
-      <p>Student Register</p> 
-    </button></a>
-    <a class="top-text"></a><button type="button" id="top-text-prof" class="top student-view">
-      <p>Professor View</p> 
-    </button></a>
-    <a class="top-text" href="professor_subject"><button type="button" id="top-text-prof-regis" class="top student-view">
-      <p>Professor Register</p> 
-    </button></a>
-    <a class="top-text"></a><button type="button" id="top-text-hall" class="top student-view">
-      <p>Hall View</p> 
-    </button></a>
+{%extends 'base.html'%}
+{%block content%}
+    {%if not std%}
 
+      <h1 style="margin-left: 35%;">No Students or No 8 Subjects Registered, Register!</h1>
+    {%else%}
     <!-- <div id="divid"></div> -->
     <div id="table">
       <table>
@@ -153,6 +85,5 @@
       </table>
 
     </div>
-
-  </body>
-</html>
+{%endif%}
+{%endblock%}

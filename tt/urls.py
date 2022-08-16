@@ -10,4 +10,6 @@ urlpatterns=[
     path('student_registered',views.student_registered,name='student_registered'),
     path('hall_view',views.hall_view,name='hall_view'),
     path('prof_view',views.prof_view,name='prof_view'),
+    # path('delProf/<str:id>',views.delProf,name='delProf'),
+    path('delProf',views.delProf,name='delProf'),
 ]

@@ -2,9 +2,18 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from django.http  import HttpResponse
-from .models import professor_subject as prof_subjec
+from .models import professor_subject as prof_subjec#bug table prof is as prof_subjec
 from .models import student
 from django.template import loader
+"""
+-it works only if 8 subjects are there 
+-one can store only one student
+-student automatically dets deleted
+-
+
+"""
+
+
 def index(request):
     # template=loader.get_template('/index.html')
     std=student.objects.all()
@@ -33,8 +42,20 @@ def index(request):
 
     return render(request,'index.html',{'a':std})
     
+@csrf_exempt
+def delProf(request):
+    id=request.POST.get("id")
+    print("------------",str(id))
+    prof_subjec.objects.filter(prof_subj_id=id).delete()
+    student.objects.all().delete()
+    return index(request)
+   
+
+
 def professor_subject(request):
-    return render(request,'professor-subject.html',{})
+    std=student.objects.all()
+    pro=prof_subjec.objects.all()
+    return render(request,'professor-subject.html',{"a":std,"prof":pro})
 
 def student_register(request):
     prof_sub=prof_subjec.objects.all()
@@ -48,16 +69,20 @@ def prof_subj_registration(request):
         prof_na=request.POST.get('prof-name')
         subj_na=request.POST.get('subj-name')
         cred=request.POST.get('credits')
+        if not cred:
+            cred=4
+
         # if(prof_nam)
         profid=subj_na+"  Prof ."+prof_na
         prof=prof_subjec(prof_subj_id=profid,prof_name=prof_na,subj_name=subj_na,credits=cred)
         prof.save()
-    return render(request,'index.html')
+    return     index(request)
+    
 
 
 @csrf_exempt
 def student_registered(request):
-    student.objects.all().delete()
+    student.objects.all().delete()#deletes all student data
     stdId=request.POST.get('std_id')
     stdName=request.POST.get('std_name')
     std=student(std_id=stdId,std_name=stdName)
@@ -99,15 +124,16 @@ def student_registered(request):
         print(id,"\n")
         c=c+1
     stud.save()
-    return render(request,'index.html',{})
+    return index(request)
 
 def hall_view(request):
     a={"h1":"hall 1","h2":"hall 2","h3":"hall 3","h4":"hall 4","h5":"hall 5"}
     b=["hall 1","hall 2","hall 3","hall 4"]
     c=["hall 5","hall 1","hall 2","hall 3"]
     days=["Monday","Tuesday","Wednesday","Thursday","Friday"]
+    std=student.objects.all()
     return render(request,'hall.html',{
-        "a":b,"c":c,"days":days})
+        "a":b,"c":c,"days":days,"std":std})
 
 
 def prof_view(request):

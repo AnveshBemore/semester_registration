@@ -5,12 +5,12 @@ class professor_subject(models.Model):
     prof_subj_id=models.CharField(max_length=400,primary_key=True)
     prof_name=models.CharField(max_length=400)
     subj_name=models.CharField(max_length=400)
-    credits=models.IntegerField(default=0)
+    credits=models.IntegerField(default=4)
     class Meta:
         db_table='professor_subject'
 
 class student(models.Model):
-    std_id=models.IntegerField(primary_key=True)
+    std_id=models.CharField(max_length=500, primary_key=True)
     std_name=models.CharField(max_length=500)
     course1=models.CharField(max_length=500)
     course2=models.CharField(max_length=500)

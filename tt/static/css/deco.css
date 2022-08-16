@@ -1,0 +1,148 @@
+button:hover {
+    background-color: grey;
+    cursor: pointer;
+  }
+  button {
+    border-radius: 25px;
+  }
+  .top {
+    background-color: black;
+    border: none;
+    width: 10vw;
+    height: 5vh;
+    margin-left: 8vw;
+    margin-top: 30px;
+  }
+  .top-text {
+    color: white;
+  }
+  table {
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+  table,
+  th,
+  td {
+    border: 1px solid white;
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    background-color: #96d4d4;
+    padding: 15px;
+    text-align: center;
+  }
+  td {
+    width: 80px;
+  }
+  #divid {
+    font-size: 20px;
+    margin-top: 80px;
+  }
+  a {
+    text-decoration: none;
+  }
+  p{
+    color: white;
+  }
+  div {
+    display: inline-block;
+    margin: 20px;
+  }
+  #divform {
+    margin-top: 60px;
+    margin-left: 30vw;
+  }
+  #div_form{
+    margin-top: 60px;
+    margin-left: 20%;
+  }
+  input {
+    border-radius: 25px;
+  }
+
+  label {
+    margin-left: 40px;
+    font-family: Georgia;
+    font-size: 20px;
+  }
+  #submit-prof-sub {
+    margin-left: 20vw;
+    width: 100px;
+    border: none;
+    padding: 10px;
+    background-color: black;
+    color: white;
+  }
+  
+  #submit-prof-sub:hover {
+
+    background-color: grey;
+  }
+   a {
+    text-decoration: none;
+  }
+  p{
+    color: white;
+  }
+  #select_sub_prof{
+    margin-left: 33vw;
+    font-size: xx-large;
+  }
+  #subj_select{
+    margin-top: 15vh;
+  }
+  .subject{
+    margin-top: 15px;
+    margin-left: 10px;
+  }
+  #submit{
+    margin-left: 50vw;
+    background-color: black;
+    border: none;
+    width: 10vw;
+    height: 5vh;
+    margin-top: 40px;
+
+    color: white;
+  }
+  #submit:hover{
+    background-color: grey;
+
+  }
+  .profess{
+    margin-top: 20px;
+  }
+  #std{
+    margin-left: 30vw;
+  }
+  #std_name ,#std_id{
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+  select{
+    border-radius: 25px;
+    width: 120px;        
+    height: 30px;
+    text-align: center;
+  }
+  input{
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  #clr{
+    padding: 10px;
+    margin-left: 40%;
+    border: none;
+  }
+  .lab{
+    background-color: #0fa19a;
+  } 
+  
+  .check{
+    margin-left:10px ;
+    margin-top: 5px;
+  }
+  #table{
+    margin-left: 100px;
+  }
